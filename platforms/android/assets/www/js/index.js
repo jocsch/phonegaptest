@@ -50,6 +50,10 @@ var app = {
     },
 	scan: function() {
         console.log('scanning Z');
+		console.log("test");
+		console.log(cordova.plugins.barcodeScanner);
+console.log("abc");
+console.log("def_ " + cordova.plugins.barcodeScanner);
         
         //var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 	//console.log("scanner: ", cordova.plugins.barcodeScanner);

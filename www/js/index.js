@@ -50,34 +50,32 @@ var app = {
     },
 	scan: function() {
         console.log('scanning Z');
-		console.log("test");
-		console.log(cordova.plugins.barcodeScanner);
-console.log("abc");
-console.log("def_ " + cordova.plugins.barcodeScanner);
         
         //var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 	//console.log("scanner: ", cordova.plugins.barcodeScanner);
 
 		cordova.plugins.barcodeScanner.scan(function (result) {
-        //scanner.scan( function (result) { 
-
-            alert("We got a barcode\n" + 
+            /*alert("We got a barcode\n" + 
             "Result: " + result.text + "\n" + 
             "Format: " + result.format + "\n" + 
-            "Cancelled: " + result.cancelled);  
+            "Cancelled: " + result.cancelled);  */
 
            console.log("Scanner result: \n" +
                 "text: " + result.text + "\n" +
                 "format: " + result.format + "\n" +
                 "cancelled: " + result.cancelled + "\n");
-            document.getElementById("info").innerHTML = result.text;
+            //document.getElementById("info").innerHTML = result.text;
+			var res = Math.floor((Math.random() * 10) + 1) % 2;
+			var msg = "Glückwunsch. Sie haben einen Teddy gewonnen.";
+			if (res == 0) {
+				msg = "Sorry. Niete.";
+			}
+			document.getElementById("info").innerHTML = msg;
             console.log(result);
-            /*
-            if (args.format == "QR_CODE") {
-                window.plugins.childBrowser.showWebPage(args.text, { showLocationBar: false });
-            }
-            */
-
+            
+           // if (args.format == "QR_CODE") {
+           //     window.plugins.childBrowser.showWebPage(args.text, { showLocationBar: false });
+           // }
         }, function (error) { 
             console.log("Scanning failed: ", error); 
         } );
